@@ -27,5 +27,8 @@
     "np": "^7.6.0",
     "posthtml": "^0.16.5",
     "xo": "^0.38.2"
+  },
+  "dependencies": {
+    "is-url-superb": "^5.0.0"
   }
 }

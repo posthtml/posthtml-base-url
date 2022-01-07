@@ -29,6 +29,10 @@ test('does nothing if url is not a string', t => {
   return process(t, 'no-url', {url: true})
 })
 
+test('does not prepend to existing urls', t => {
+  return process(t, 'existing-urls')
+})
+
 test('img src', t => {
   return process(t, 'img-src')
 })
