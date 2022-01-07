@@ -24,3 +24,8 @@ const process = (t, name, options, log = false) => {
 test('does nothing if url is not provided', t => {
   return process(t, 'no-url', {})
 })
+
+test('does nothing if url is not a string', t => {
+  return process(t, 'no-url', {url: true})
+})
+
