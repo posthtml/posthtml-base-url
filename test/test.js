@@ -29,3 +29,16 @@ test('does nothing if url is not a string', t => {
   return process(t, 'no-url', {url: true})
 })
 
+test('img src', t => {
+  return process(t, 'img-src')
+})
+
+test('img src - tag `src` option', t => {
+  return process(t, 'img-src', {
+    tags: {
+      img: {
+        src: 'https://example.com/',
+      },
+    },
+  })
+})
