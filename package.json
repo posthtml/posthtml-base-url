@@ -12,7 +12,7 @@
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "scripts": {
-    "test": "c8 ava",
+    "test": "c8 ava --verbose",
     "pretest": "xo",
     "release": "np"
   },
