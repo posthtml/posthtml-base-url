@@ -37,11 +37,26 @@ test('img src', t => {
   return process(t, 'img-src')
 })
 
-test('img src - with `src` option', t => {
+test('img src - with `src` url', t => {
   return process(t, 'img-src', {
     tags: {
       img: {
         src: 'https://example.com/',
+      },
+    },
+  })
+})
+
+test('srcset', t => {
+  return process(t, 'srcset')
+})
+
+test('srcset - with `srcset` url', t => {
+  return process(t, 'srcset', {
+    url: 'https://example.com/',
+    tags: {
+      img: {
+        srcset: 'https://example.com/',
       },
     },
   })
