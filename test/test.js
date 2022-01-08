@@ -74,3 +74,11 @@ test('background attribute', t => {
 test('href attribute', t => {
   return process(t, 'href')
 })
+
+test('custom attribute', t => {
+  return process(t, 'custom-attribute', {
+    attributes: {
+      'data-url': 'https://example.com/',
+    },
+  })
+})
