@@ -64,3 +64,7 @@ test('srcset attribute - with `srcset` url', t => {
     },
   })
 })
+
+test('poster attribute', t => {
+  return process(t, 'poster')
+})
