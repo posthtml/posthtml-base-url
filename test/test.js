@@ -21,23 +21,23 @@ const process = (t, name, options, log = false) => {
     .then(html => t.is(html, expected(name).trim()))
 }
 
-test('does nothing if url is not provided', t => {
+test('does nothing if `url` was not provided', t => {
   return process(t, 'no-url', {})
 })
 
-test('does nothing if url is not a string', t => {
+test('does nothing if `url` is not a string', t => {
   return process(t, 'no-url', {url: true})
 })
 
-test('does not prepend to existing urls', t => {
-  return process(t, 'existing-urls')
+test('skips absolute urls', t => {
+  return process(t, 'absolute-urls')
 })
 
 test('img src', t => {
   return process(t, 'img-src')
 })
 
-test('img src - tag `src` option', t => {
+test('img src - with `src` option', t => {
   return process(t, 'img-src', {
     tags: {
       img: {
