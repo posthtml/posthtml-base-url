@@ -72,3 +72,7 @@ test('poster attribute', t => {
 test('background attribute', t => {
   return process(t, 'background')
 })
+
+test('href attribute', t => {
+  return process(t, 'href')
+})
