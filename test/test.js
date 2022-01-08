@@ -39,11 +39,9 @@ test('src attribute', t => {
 
 test('src attribute - with `src` url', t => {
   return process(t, 'src', {
+    url: 'https://example.com/',
     tags: {
       img: {
-        src: 'https://example.com/',
-      },
-      source: {
         src: 'https://example.com/',
       },
     },
