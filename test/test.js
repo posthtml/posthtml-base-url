@@ -33,25 +33,28 @@ test('skips absolute urls', t => {
   return process(t, 'absolute-urls')
 })
 
-test('img src', t => {
-  return process(t, 'img-src')
+test('src attribute', t => {
+  return process(t, 'src')
 })
 
-test('img src - with `src` url', t => {
-  return process(t, 'img-src', {
+test('src attribute - with `src` url', t => {
+  return process(t, 'src', {
     tags: {
       img: {
+        src: 'https://example.com/',
+      },
+      source: {
         src: 'https://example.com/',
       },
     },
   })
 })
 
-test('srcset', t => {
+test('srcset attribute', t => {
   return process(t, 'srcset')
 })
 
-test('srcset - with `srcset` url', t => {
+test('srcset attribute - with `srcset` url', t => {
   return process(t, 'srcset', {
     url: 'https://example.com/',
     tags: {
