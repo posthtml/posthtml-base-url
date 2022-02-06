@@ -82,3 +82,7 @@ test('custom attribute', t => {
     },
   })
 })
+
+test('background css url', t => {
+  return process(t, 'background-css')
+})

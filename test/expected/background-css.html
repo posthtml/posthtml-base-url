@@ -1,0 +1,33 @@
+<head>
+  <style>.test {
+      background-image: url('https://example.com/image.jpg');
+      background: url('https://example.com/image.jpg');
+      background-image: url('https://preserve.me/image.jpg');
+      background: url('https://preserve.me/image.jpg');
+    }
+
+    .test-2 {
+      background-image: url("https://example.com/image.jpg");
+      background: url("https://example.com/image.jpg");
+      background-image: url("https://preserve.me/image.jpg");
+      background: url("https://preserve.me/image.jpg");
+    }
+
+    .test-3 {
+      background-image: url(https://example.com/image.jpg);
+      background: url(https://example.com/image.jpg);
+      background-image: url(https://preserve.me/image.jpg);
+      background: url(https://preserve.me/image.jpg);
+    }</style>
+</head>
+
+<body style="background: url('https://example.com/image.jpg')">
+  <table style="background: url(https://example.com/image.jpg)">
+    <tr>
+      <th style="background-image: url('https://example.com/image.jpg')">Header</th>
+    </tr>
+    <tr>
+      <td style="background-image: url(https://example.com/image.jpg)">Cell</td>
+    </tr>
+  </table>
+</body>
