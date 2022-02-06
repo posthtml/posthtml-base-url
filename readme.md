@@ -25,18 +25,20 @@ Output:
 <img src="https://example.com/test.jpg">
 ```
 
-Works on the following:
+Works on the following attributes:
 
+- `src=""`
+- `srcset`
 - `href=""`
 - `poster=""`
-- `<img src="">`
 - `background=""`
-- `<img srcset="">`
+
+... and the following CSS properties:
+
 - `background: url()`
-- `<source srcset="">`
 - `background-image: url()`
 
-For CSS styles, it works in both the `<style>` tag and with inline CSS found in `style=""` attributes.
+For CSS, it works both inside `<style>` tags and with inline CSS found in `style=""` attributes.
 
 ## Install
 
