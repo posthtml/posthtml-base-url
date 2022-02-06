@@ -89,6 +89,20 @@ The plugin is opt-in, meaning that by default it doesn't affect any tag.
 
 When you set `allTags` to `true`, the plugin will prepend your `url` to all attribute values in all the tags that it supports.
 
+### `styleTag`
+
+Type: `boolean`\
+Default: `false`
+
+When set to `true`, the plugin will prepend your `url` to `background: url(...)` and `background-image: url(...)` CSS properties in all `<style>` tags.
+
+### `inlineCss`
+
+Type: `boolean`\
+Default: `false`
+
+When set to `true`, the plugin will prepend your `url` to `background: url(...)` and `background-image: url(...)` CSS properties in all `style=""` attributes.
+
 ### `tags`
 
 Type: `object`\
