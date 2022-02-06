@@ -87,7 +87,7 @@ Default: `false`
 
 The plugin is opt-in, meaning that by default it doesn't affect any tag.
 
-When you set `allTags` to `true`, the plugin will prepend your `url` to all tags.
+When you set `allTags` to `true`, the plugin will prepend your `url` to all attribute values in all the tags that it supports.
 
 ### `tags`
 
