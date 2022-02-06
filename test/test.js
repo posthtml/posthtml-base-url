@@ -80,6 +80,7 @@ test('background css url', t => {
   return process(t, 'background-css', {
     url: 'https://example.com/',
     styleTag: true,
+    inlineCss: true,
   })
 })
 
