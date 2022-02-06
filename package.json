@@ -19,7 +19,8 @@
   "keywords": [
     "html",
     "posthtml",
-    "posthtml-plugin"
+    "posthtml-plugin",
+    "postcss-base-url"
   ],
   "devDependencies": {
     "ava": "^4.0.1",
