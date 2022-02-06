@@ -48,8 +48,6 @@ $ npm i posthtml posthtml-base-url
 
 ## Usage
 
-Provide clear code samples showing how to use the plugin: 
-
 ```js
 const posthtml = require('posthtml')
 const baseUrl = require('posthtml-base-url')
@@ -57,7 +55,7 @@ const baseUrl = require('posthtml-base-url')
 posthtml([
   baseUrl()
 ])
-  .process('<img src="test.jpg">', {url: 'https://example.com'})
+  .process('<img src="test.jpg">', {url: 'https://example.com', allTags: true})
   .then(result => console.log(result.html))
 ```
 
@@ -82,35 +80,14 @@ Default: `''`
 
 The string to prepend to the attribute value.
 
-### `attributes`
+### `allTags`
 
-Type: `object`\
-Default: `{}`
+Type: `boolean`\
+Default: `false`
 
-Key-value pairs of attributes and what to prepend to them.
+The plugin is opt-in, meaning that by default it doesn't affect any tag.
 
-Example:
-
-```js
-posthtml([
-  baseUrl()
-])
-  .process(
-    '<div data-url="foo/bar.html"></div>', 
-    {
-      attributes: {
-        'data-url': 'https://example.com/',
-      }
-    }
-  )
-  .then(result => console.log(result.html))
-```
-
-Result:
-
-```html
-<div data-url="https://example.com/foo/bar.html"></div>
-```
+When you set `allTags` to `true`, the plugin will prepend your `url` to all tags.
 
 ### `tags`
 
@@ -119,44 +96,9 @@ Default: `{/*object with select tags to handle*/}`
 
 An object that defines tags and their attributes to handle.
 
-By default, the plugin prepends your `url` string to all of the tags in the HTML specification that could reference a path/URL.
+When you define tags to handle with the `tags` option, the plugin will _only handle those tags_.
 
-So you shouldn't need to change it, unless you want to prepend _only_ to tags that you specify - that can be done with the `forceTags` option below.
-
-For example:
-
-```js
-posthtml([
-  baseUrl()
-])
-  .process(
-    '<a href="foo/bar.html"></a>', 
-    {
-      url: 'https://example.com',
-      tags: {
-        a: {
-          href: true,
-        },
-      }
-    }
-  )
-  .then(result => console.log(result.html))
-```
-
-Result:
-
-```html
-<a href="https://example.com/foo/bar.html"></a>
-```
-
-### `forceTags`
-
-Type: `boolean`\
-Default: `false`
-
-Set to `true` to force the plugin to handle _only_ the tags that you've specified.
-
-For example, maybe you need to prepend a base URL to `<img>` tags, but not `<a>` tags:
+For example, the `<a>` tag here is not prepended to:
 
 ```js
 posthtml([
@@ -187,7 +129,35 @@ Result:
 </a>
 ```
 
-If you set it to `true` and didn't specify any tags, it won't do anything.
+### `attributes`
+
+Type: `object`\
+Default: `{}`
+
+Key-value pairs of attributes and what to prepend to them.
+
+Example:
+
+```js
+posthtml([
+  baseUrl()
+])
+  .process(
+    '<div data-url="foo/bar.html"></div>', 
+    {
+      attributes: {
+        'data-url': 'https://example.com/',
+      }
+    }
+  )
+  .then(result => console.log(result.html))
+```
+
+Result:
+
+```html
+<div data-url="https://example.com/foo/bar.html"></div>
+```
 
 [npm]: https://www.npmjs.com/package/posthtml-base-url
 [npm-version-shield]: https://img.shields.io/npm/v/posthtml-base-url.svg
