@@ -37,30 +37,8 @@ test('src attribute', t => {
   return process(t, 'src')
 })
 
-test('src attribute - with `src` url', t => {
-  return process(t, 'src', {
-    url: 'https://example.com/',
-    tags: {
-      img: {
-        src: 'https://example.com/',
-      },
-    },
-  })
-})
-
 test('srcset attribute', t => {
   return process(t, 'srcset')
-})
-
-test('srcset attribute - with `srcset` url', t => {
-  return process(t, 'srcset', {
-    url: 'https://example.com/',
-    tags: {
-      img: {
-        srcset: 'https://example.com/',
-      },
-    },
-  })
 })
 
 test('poster attribute', t => {
@@ -88,13 +66,12 @@ test('background css url', t => {
 })
 
 test('applies only to user-defined tags', t => {
-  return process(t, 'force-tags', {
+  return process(t, 'user-tags', {
     tags: {
       img: {
         src: 'https://example.com/',
         srcset: 'https://example2.com/',
       },
     },
-    forceTags: true,
   })
 })
