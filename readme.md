@@ -115,7 +115,6 @@ posthtml([
           srcset: 'https://bar.com/',
         },
       },
-      forceTags: true,
     }
   )
   .then(result => console.log(result.html))
