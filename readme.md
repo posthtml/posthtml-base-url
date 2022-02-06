@@ -119,7 +119,9 @@ Default: `{/*object with select tags to handle*/}`
 
 An object that defines tags and their attributes to handle.
 
-Covers all of the tags in the HTML specification that could reference a path/URL, so you shouldn't need to change it unless new tags are added.
+By default, the plugin prepends your `url` string to all of the tags in the HTML specification that could reference a path/URL.
+
+So you shouldn't need to change it, unless you want to prepend _only_ to tags that you specify - that can be done with the `forceTags` option below.
 
 For example:
 
