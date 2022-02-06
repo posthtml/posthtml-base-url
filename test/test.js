@@ -77,7 +77,10 @@ test('custom attribute', t => {
 })
 
 test('background css url', t => {
-  return process(t, 'background-css')
+  return process(t, 'background-css', {
+    url: 'https://example.com/',
+    styleTag: true,
+  })
 })
 
 test('applies only to user-defined tags', t => {
