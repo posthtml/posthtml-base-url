@@ -34,23 +34,38 @@ test('skips absolute urls', t => {
 })
 
 test('src attribute', t => {
-  return process(t, 'src')
+  return process(t, 'src', {
+    url: 'https://example.com/',
+    allTags: true,
+  })
 })
 
 test('srcset attribute', t => {
-  return process(t, 'srcset')
+  return process(t, 'srcset', {
+    url: 'https://example.com/',
+    allTags: true,
+  })
 })
 
 test('poster attribute', t => {
-  return process(t, 'poster')
+  return process(t, 'poster', {
+    url: 'https://example.com/',
+    allTags: true,
+  })
 })
 
 test('background attribute', t => {
-  return process(t, 'background')
+  return process(t, 'background', {
+    url: 'https://example.com/',
+    allTags: true,
+  })
 })
 
 test('href attribute', t => {
-  return process(t, 'href')
+  return process(t, 'href', {
+    url: 'https://example.com/',
+    allTags: true,
+  })
 })
 
 test('custom attribute', t => {
