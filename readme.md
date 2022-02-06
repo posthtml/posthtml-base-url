@@ -28,7 +28,7 @@ Output:
 Works on the following attributes:
 
 - `src=""`
-- `srcset`
+- `srcset=""`
 - `href=""`
 - `poster=""`
 - `background=""`
