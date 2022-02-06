@@ -86,3 +86,15 @@ test('custom attribute', t => {
 test('background css url', t => {
   return process(t, 'background-css')
 })
+
+test('applies only to user-defined tags', t => {
+  return process(t, 'force-tags', {
+    tags: {
+      img: {
+        src: 'https://example.com/',
+        srcset: 'https://example2.com/',
+      },
+    },
+    forceTags: true,
+  })
+})
