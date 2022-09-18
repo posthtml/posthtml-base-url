@@ -159,9 +159,10 @@ posthtml([
       <img src="img.jpg" srcset="img-HD.jpg 2x, img-xs.jpg 100w">
     </a>`, 
     {
+      url: 'https://foo.com/',
       tags: {
         img: {
-          src: 'https://foo.com/',
+          src: true,
           srcset: 'https://bar.com/',
         },
       },
@@ -177,6 +178,8 @@ Result:
   <img src="https://foo.com/image1.jpg" srcset="https://bar.com/img-HD.jpg 2x, https://bar.com/img-xs.jpg 100w">
 </a>
 ```
+
+You may set the value of an attribute to `true` and the plugin will use the `url` option value - we did that above for the `src` attribute.
 
 ### `attributes`
 
