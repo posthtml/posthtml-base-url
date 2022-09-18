@@ -21,12 +21,19 @@ const process = (t, name, options, log = false) => {
     .then(html => t.is(html, expected(name).trim()))
 }
 
-test('does nothing if `url` was not provided', t => {
+test('skip if `url` was not provided', t => {
   return process(t, 'no-url', {})
 })
 
-test('does nothing if `url` is not a string', t => {
+test('skip if `url` is not a string', t => {
   return process(t, 'no-url', {url: true})
+})
+
+test('skip if `options.tags` is invalid', t => {
+  return process(t, 'no-url', {
+    url: 'https://example.com',
+    tags: true,
+  })
 })
 
 test('skips absolute urls', t => {
@@ -84,13 +91,23 @@ test('css urls', t => {
   })
 })
 
-test('applies only to user-defined tags', t => {
+test('user-defined tags (object)', t => {
   return process(t, 'user-tags', {
     tags: {
       img: {
         src: 'https://example.com/',
-        srcset: 'https://example2.com/',
+        srcset: 'https://example.com/',
+      },
+      script: {
+        src: 'https://example.com/',
       },
     },
+  })
+})
+
+test('user-defined tags (array)', t => {
+  return process(t, 'user-tags', {
+    url: 'https://example.com/',
+    tags: ['img', 'script'],
   })
 })
