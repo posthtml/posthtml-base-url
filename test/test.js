@@ -76,8 +76,8 @@ test('custom attribute', t => {
   })
 })
 
-test('background css url', t => {
-  return process(t, 'background-css', {
+test('css urls', t => {
+  return process(t, 'css-url', {
     url: 'https://example.com/',
     styleTag: true,
     inlineCss: true,

@@ -1,5 +1,15 @@
 <head>
   <style>
+    @font-face {
+      font-family: 'Example';
+      src: url('fonts/Example1.woff2') format('woff2'), url(fonts/Example2.woff) format('woff'), url("fonts/Example3.woff") format('woff');
+    }
+
+    @font-face {
+      font-family: 'Example 2';
+      src: url('https://preserve.me/fonts/Example1.woff2') format('woff2'), url(https://preserve.me/fonts/Example2.woff) format('woff');
+    }
+
     .test {
       background-image: url('image.jpg');
       background: url('image.jpg');
@@ -20,10 +30,20 @@
       background-image: url(https://preserve.me/image.jpg);
       background: url(https://preserve.me/image.jpg);
     }
+
+    .multiple-bg {
+      background-image: url('one.png'), url(two.png), url("three.png"), linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+    }
   </style>
 </head>
 
 <body style="background: url('image.jpg')">
+  <style>
+    @font-face {
+      font-family: 'Example 2';
+      src: url('fonts/Example3.woff2') format('woff2'), url('fonts/Example4.woff') format('woff');
+    }
+  </style>
   <table style="background: url(image.jpg)">
     <tr>
       <th style="background-image: url('image.jpg')">Header</th>
