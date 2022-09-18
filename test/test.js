@@ -93,9 +93,10 @@ test('css urls', t => {
 
 test('user-defined tags (object)', t => {
   return process(t, 'user-tags', {
+    url: 'https://example.com/',
     tags: {
       img: {
-        src: 'https://example.com/',
+        src: true,
         srcset: 'https://example.com/',
       },
       script: {
