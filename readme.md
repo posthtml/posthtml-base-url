@@ -108,14 +108,16 @@ When set to `true`, the plugin will prepend your `url` to all `url()` sources in
 
 ### `tags`
 
-Type: `object`\
-Default: `{/*object with select tags to handle*/}`
+Type: `array|object`\
+Default: [defaultTags](./lib/index.js) (object)
 
-An object that defines tags and their attributes to handle.
+Define a list of tags and their attributes to handle.
 
-When you define tags to handle with the `tags` option, the plugin will _only handle those tags_.
+When using the `tags` option, the plugin will _only handle those tags_.
 
-For example, the `<a>` tag here is not prepended to:
+#### Array `tags`
+
+To replace all known attributes for a list of tags, use the array format:
 
 ```js
 posthtml([
@@ -124,6 +126,37 @@ posthtml([
   .process(
     `<a href="foo/bar.html">
       <img src="img.jpg" srcset="img-HD.jpg 2x,img-xs.jpg 100w">
+    </a>
+    
+    <script src="javascript.js"></script>`, 
+    {
+      tags: ['img', 'script'],
+    }
+  )
+  .then(result => console.log(result.html))
+```
+
+Result:
+
+```html
+<a href="foo/bar.html">
+  <img src="https://example.com/image1.jpg" srcset="https://example.com/image1-HD.jpg 2x, https://example.com/image1-phone.jpg 100w">
+</a>
+
+<script src="https://example.com/javascript.js"></script>
+```
+
+#### Object `tags`
+
+You may use an object for granular control over how specific attributes should be handled:
+
+```js
+posthtml([
+  baseUrl()
+])
+  .process(
+    `<a href="foo/bar.html">
+      <img src="img.jpg" srcset="img-HD.jpg 2x, img-xs.jpg 100w">
     </a>`, 
     {
       tags: {
