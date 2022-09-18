@@ -94,14 +94,14 @@ When you set `allTags` to `true`, the plugin will prepend your `url` to all attr
 Type: `boolean`\
 Default: `false`
 
-When set to `true`, the plugin will prepend your `url` to `background: url(...)` and `background-image: url(...)` CSS properties in all `<style>` tags.
+When set to `true`, the plugin will prepend your `url` to all `url()` sources in `<style>` tags.
 
 ### `inlineCss`
 
 Type: `boolean`\
 Default: `false`
 
-When set to `true`, the plugin will prepend your `url` to `background: url(...)` and `background-image: url(...)` CSS properties in all `style=""` attributes.
+When set to `true`, the plugin will prepend your `url` to all `url()` sources in `style=""` attributes.
 
 ### `tags`
 
