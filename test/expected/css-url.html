@@ -1,5 +1,15 @@
 <head>
-  <style>.test {
+  <style>@font-face {
+      font-family: 'Example';
+      src: url('https://example.com/fonts/Example1.woff2') format('woff2'), url(https://example.com/fonts/Example2.woff) format('woff'), url("https://example.com/fonts/Example3.woff") format('woff');
+    }
+
+    @font-face {
+      font-family: 'Example 2';
+      src: url('https://preserve.me/fonts/Example1.woff2') format('woff2'), url(https://preserve.me/fonts/Example2.woff) format('woff');
+    }
+
+    .test {
       background-image: url('https://example.com/image.jpg');
       background: url('https://example.com/image.jpg');
       background-image: url('https://preserve.me/image.jpg');
@@ -18,10 +28,18 @@
       background: url(https://example.com/image.jpg);
       background-image: url(https://preserve.me/image.jpg);
       background: url(https://preserve.me/image.jpg);
+    }
+
+    .multiple-bg {
+      background-image: url('https://example.com/one.png'), url(https://example.com/two.png), url("https://example.com/three.png"), linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
     }</style>
 </head>
 
 <body style="background: url('https://example.com/image.jpg')">
+  <style>@font-face {
+      font-family: 'Example 2';
+      src: url('https://example.com/fonts/Example3.woff2') format('woff2'), url('https://example.com/fonts/Example4.woff') format('woff');
+    }</style>
   <table style="background: url(https://example.com/image.jpg)">
     <tr>
       <th style="background-image: url('https://example.com/image.jpg')">Header</th>

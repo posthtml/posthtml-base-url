@@ -37,8 +37,11 @@ Works on the following attributes:
 
 - `background: url()`
 - `background-image: url()`
+- `@font-face { src: url() }`
 
-For CSS, it works both inside `<style>` tags and with inline CSS found in `style=""` attributes.
+Both `<style>` tags and `style=""` attributes are supported.
+
+CSS property values with multiple `url()` sources are supported as well.
 
 ## Install
 
