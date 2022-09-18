@@ -1,7 +1,7 @@
 <div align="center">
   <img width="150" height="150" alt="PostHTML" src="https://posthtml.github.io/posthtml/logo.svg">
   <h1>Base URL</h1>
-  <p>Prepend a base string to HTML attribute values</p>
+  <p>Prepend a string to source paths in your HTML</p>
 
   [![Version][npm-version-shield]][npm]
   [![Build][github-ci-shield]][github-ci]
@@ -11,7 +11,7 @@
 
 ## Introduction
 
-This PostHTML plugin can prepend a string to various attribute values and CSS styles.
+This PostHTML plugin can prepend a string to various HTML attribute values and CSS property values.
 
 Input:
 
