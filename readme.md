@@ -56,9 +56,12 @@ const posthtml = require('posthtml')
 const baseUrl = require('posthtml-base-url')
 
 posthtml([
-  baseUrl()
+  baseUrl({
+    url: 'https://example.com', 
+    tags: ['img']
+  })
 ])
-  .process('<img src="test.jpg">', {url: 'https://example.com', allTags: true})
+  .process('<img src="test.jpg">')
   .then(result => console.log(result.html))
 ```
 
@@ -121,17 +124,16 @@ To replace all known attributes for a list of tags, use the array format:
 
 ```js
 posthtml([
-  baseUrl()
+  baseUrl({
+    tags: ['img', 'script'],
+  })
 ])
   .process(
     `<a href="foo/bar.html">
       <img src="img.jpg" srcset="img-HD.jpg 2x,img-xs.jpg 100w">
     </a>
     
-    <script src="javascript.js"></script>`, 
-    {
-      tags: ['img', 'script'],
-    }
+    <script src="javascript.js"></script>`
   )
   .then(result => console.log(result.html))
 ```
@@ -152,21 +154,20 @@ You may use an object for granular control over how specific attributes should b
 
 ```js
 posthtml([
-  baseUrl()
+  baseUrl({
+    url: 'https://foo.com/',
+    tags: {
+      img: {
+        src: true,
+        srcset: 'https://bar.com/',
+      },
+    },
+  })
 ])
   .process(
     `<a href="foo/bar.html">
       <img src="img.jpg" srcset="img-HD.jpg 2x, img-xs.jpg 100w">
-    </a>`, 
-    {
-      url: 'https://foo.com/',
-      tags: {
-        img: {
-          src: true,
-          srcset: 'https://bar.com/',
-        },
-      },
-    }
+    </a>`
   )
   .then(result => console.log(result.html))
 ```
@@ -192,16 +193,13 @@ Example:
 
 ```js
 posthtml([
-  baseUrl()
-])
-  .process(
-    '<div data-url="foo/bar.html"></div>', 
-    {
-      attributes: {
-        'data-url': 'https://example.com/',
-      }
+  baseUrl({
+    attributes: {
+      'data-url': 'https://example.com/',
     }
-  )
+  })
+])
+  .process('<div data-url="foo/bar.html"></div>')
   .then(result => console.log(result.html))
 ```
 
