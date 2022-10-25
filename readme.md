@@ -125,6 +125,7 @@ To replace all known attributes for a list of tags, use the array format:
 ```js
 posthtml([
   baseUrl({
+    url: 'https://example.com',
     tags: ['img', 'script'],
   })
 ])
@@ -142,7 +143,7 @@ Result:
 
 ```html
 <a href="foo/bar.html">
-  <img src="https://example.com/image1.jpg" srcset="https://example.com/image1-HD.jpg 2x, https://example.com/image1-phone.jpg 100w">
+  <img src="https://example.com/img.jpg" srcset="https://example.com/img-HD.jpg 2x, https://example.com/img-xs.jpg 100w">
 </a>
 
 <script src="https://example.com/javascript.js"></script>
@@ -176,7 +177,7 @@ Result:
 
 ```html
 <a href="foo/bar.html">
-  <img src="https://foo.com/image1.jpg" srcset="https://bar.com/img-HD.jpg 2x, https://bar.com/img-xs.jpg 100w">
+  <img src="https://foo.com/img.jpg" srcset="https://bar.com/img-HD.jpg 2x, https://bar.com/img-xs.jpg 100w">
 </a>
 ```
 
