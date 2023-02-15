@@ -1,7 +1,7 @@
 {
   "name": "posthtml-base-url",
   "description": "PostHTML plugin for prepending a base string to attribute values.",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "license": "MIT",
   "author": "PostHTML (https://github.com/posthtml)",
   "bugs": "https://github.com/posthtml/posthtml-base-url/issues",
