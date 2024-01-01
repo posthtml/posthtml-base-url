@@ -23,7 +23,7 @@
     "postcss-base-url"
   ],
   "devDependencies": {
-    "ava": "^5.0.1",
+    "ava": "^6.0.1",
     "c8": "^8.0.0",
     "np": "^9.0.0",
     "posthtml": "^0.16.5",
