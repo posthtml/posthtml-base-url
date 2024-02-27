@@ -46,14 +46,14 @@ CSS property values with multiple `url()` sources are supported as well.
 ## Install
 
 ```
-$ npm i posthtml posthtml-base-url
+npm i posthtml posthtml-base-url
 ```
 
 ## Usage
 
 ```js
-const posthtml = require('posthtml')
-const baseUrl = require('posthtml-base-url')
+import posthtml from 'posthtml'
+import baseUrl from 'posthtml-base-url'
 
 posthtml([
   baseUrl({
@@ -216,5 +216,5 @@ Result:
 [npm-stats-shield]: https://img.shields.io/npm/dt/posthtml-base-url.svg
 [github-ci]: https://github.com/posthtml/posthtml-base-url/actions/workflows/nodejs.yml
 [github-ci-shield]: https://github.com/posthtml/posthtml-base-url/actions/workflows/nodejs.yml/badge.svg
-[license]: ./license
+[license]: ./LICENSE
 [license-shield]: https://img.shields.io/npm/l/posthtml-base-url.svg
