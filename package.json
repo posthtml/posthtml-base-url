@@ -8,6 +8,9 @@
   "homepage": "https://github.com/posthtml/posthtml-base-url",
   "repository": "posthtml/posthtml-base-url",
   "main": "lib",
+  "files": [
+    "lib"
+  ],
   "engines": {
     "node": ">=14.0.0"
   },
