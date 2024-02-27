@@ -3,6 +3,14 @@ export type BaseURLConfig = {
   The URL string to prepend.
 
   @default ''
+
+  @example
+
+  ```
+  baseUrl({
+    url: 'https://example.com/',
+  })
+  ```
   */
   url: string;
 
