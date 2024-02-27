@@ -1,16 +1,17 @@
-const test = require('ava')
-const posthtml = require('posthtml')
-const plugin = require('../lib/index.js')
+import test from 'ava'
+import posthtml from 'posthtml'
+import plugin from '../lib/index.js'
 
-const path = require('path')
-const {readFileSync} = require('fs')
+import path from 'node:path'
+import {fileURLToPath} from 'node:url'
+import { readFileSync } from 'node:fs'
 
-// eslint-disable-next-line
-const error = (name, options, cb) => posthtml([plugin(options)]).process(fixture(name)).catch(cb)
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const fixture = file => readFileSync(path.join(__dirname, 'fixtures', `${file}.html`), 'utf8').trim()
+const expected = file => readFileSync(path.join(__dirname, 'expected', `${file}.html`), 'utf8').trim()
+
 const clean = html => html.replace(/[^\S\r\n]+$/gm, '').trim()
-
-const fixture = file => readFileSync(path.join(__dirname, 'fixtures', `${file}.html`), 'utf8')
-const expected = file => readFileSync(path.join(__dirname, 'expected', `${file}.html`), 'utf8')
 
 const process = (t, name, options, log = false) => {
   options = options || {url: 'https://example.com/'}
