@@ -2,7 +2,7 @@ export type BaseURLConfig = {
   /**
   The URL string to prepend.
 
-  @default undefined
+  @default ''
   */
   url: string;
 
