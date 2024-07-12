@@ -27,6 +27,7 @@
     "dev": "vitest",
     "build": "unbuild",
     "release": "npx np",
+    "prepack": "unbuild",
     "pretest": "npm run lint",
     "lint": "biome lint ./lib",
     "test": "vitest run --coverage"
