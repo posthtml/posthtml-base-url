@@ -3,6 +3,7 @@
 const postcss = require('postcss');
 const isUrl = require('is-url-superb');
 const defu = require('defu');
+const safe = require('postcss-safe-parser');
 const api_js = require('posthtml/lib/api.js');
 const srcset = require('srcset');
 
@@ -10,6 +11,7 @@ function _interopDefaultCompat (e) { return e && typeof e === 'object' && 'defau
 
 const postcss__default = /*#__PURE__*/_interopDefaultCompat(postcss);
 const isUrl__default = /*#__PURE__*/_interopDefaultCompat(isUrl);
+const safe__default = /*#__PURE__*/_interopDefaultCompat(safe);
 
 const urlPattern = /(url\(["']?)(.*?)(["']?\))/g;
 function postcssBaseurl(options = {}) {
@@ -157,7 +159,7 @@ const plugin = (options = {}) => (tree) => {
     node.attrs[attribute] = typeof value === "boolean" ? options.url + node.attrs[attribute] : value + node.attrs[attribute];
   };
   const prependUrl = (value, url) => {
-    const { css } = postcss__default([postcssBaseurl({ base: url })]).process(`div { ${value} }`);
+    const { css } = postcss__default([postcssBaseurl({ base: url })]).process(`div { ${value} }`, { parser: safe__default });
     return css.replace(/div {\s|\s}$/gm, "");
   };
   return tree.walk(process);
