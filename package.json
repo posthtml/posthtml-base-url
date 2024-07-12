@@ -36,8 +36,8 @@
     "vitest": "^2.0.2"
   },
   "dependencies": {
+    "defu": "^6.1.4",
     "is-url-superb": "^6.1.0",
-    "lodash.merge": "^4.6.2",
     "postcss": "^8.4.35",
     "srcset": "^5.0.1"
   }
