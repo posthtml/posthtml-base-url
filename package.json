@@ -49,6 +49,7 @@
     "defu": "^6.1.4",
     "is-url-superb": "^6.1.0",
     "postcss": "^8.4.35",
+    "postcss-safe-parser": "^7.0.0",
     "srcset": "^5.0.1"
   },
   "peerDependencies": {

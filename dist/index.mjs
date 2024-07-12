@@ -1,6 +1,7 @@
 import postcss from 'postcss';
 import isUrl from 'is-url-superb';
 import { defu } from 'defu';
+import safe from 'postcss-safe-parser';
 import { walk } from 'posthtml/lib/api.js';
 import { parseSrcset, stringifySrcset } from 'srcset';
 
@@ -150,7 +151,7 @@ const plugin = (options = {}) => (tree) => {
     node.attrs[attribute] = typeof value === "boolean" ? options.url + node.attrs[attribute] : value + node.attrs[attribute];
   };
   const prependUrl = (value, url) => {
-    const { css } = postcss([postcssBaseurl({ base: url })]).process(`div { ${value} }`);
+    const { css } = postcss([postcssBaseurl({ base: url })]).process(`div { ${value} }`, { parser: safe });
     return css.replace(/div {\s|\s}$/gm, "");
   };
   return tree.walk(process);
