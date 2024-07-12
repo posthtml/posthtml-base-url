@@ -8,31 +8,40 @@
   "homepage": "https://github.com/posthtml/posthtml-base-url",
   "repository": "posthtml/posthtml-base-url",
   "type": "module",
-  "exports": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "files": [
-    "lib"
+    "dist"
   ],
   "engines": {
     "node": ">=18"
   },
   "scripts": {
     "dev": "vitest",
-    "test": "vitest run --coverage",
-    "lint": "biome lint ./lib",
+    "build": "unbuild",
+    "release": "npx np",
     "pretest": "npm run lint",
-    "release": "npx np"
+    "lint": "biome lint ./lib",
+    "test": "vitest run --coverage"
   },
   "keywords": [
     "html",
     "posthtml",
+    "base-url",
     "posthtml-plugin",
     "postcss-base-url"
   ],
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
     "@vitest/coverage-v8": "^2.0.2",
-    "posthtml": "^0.16.6",
+    "unbuild": "^2.0.0",
     "vitest": "^2.0.2"
   },
   "dependencies": {
@@ -40,5 +49,8 @@
     "is-url-superb": "^6.1.0",
     "postcss": "^8.4.35",
     "srcset": "^5.0.1"
+  },
+  "peerDependencies": {
+    "posthtml": "^0.16.6"
   }
 }
