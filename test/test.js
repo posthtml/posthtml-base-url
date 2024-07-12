@@ -1,9 +1,9 @@
 import path from 'node:path'
-import {fileURLToPath} from 'node:url'
-import {readFileSync} from 'node:fs'
 import posthtml from 'posthtml'
-import {test, expect} from 'vitest'
 import plugin from '../lib/index.js'
+import { test, expect } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
