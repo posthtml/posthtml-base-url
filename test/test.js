@@ -112,3 +112,17 @@ test('user-defined tags (array)', t => {
     tags: ['img', 'script'],
   })
 })
+
+test('joins relative paths', t => {
+  return process(t, 'joins', {
+    url: 'images',
+    tags: {
+      img: {
+        src: true,
+      },
+      script: {
+        src: 'assets',
+      },
+    },
+  })
+})
