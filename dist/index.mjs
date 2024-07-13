@@ -1,3 +1,4 @@
+import path from 'pathe';
 import postcss from 'postcss';
 import isUrl from 'is-url-superb';
 import { defu } from 'defu';
@@ -148,7 +149,7 @@ const plugin = (options = {}) => (tree) => {
     if (isUrl(node.attrs[attribute])) {
       return node;
     }
-    node.attrs[attribute] = typeof value === "boolean" ? options.url + node.attrs[attribute] : value + node.attrs[attribute];
+    node.attrs[attribute] = typeof value === "boolean" ? isUrl(options.url) ? options.url + node.attrs[attribute] : path.join(options.url, node.attrs[attribute]) : isUrl(value) ? value + node.attrs[attribute] : path.join(value, node.attrs[attribute]);
   };
   const prependUrl = (value, url) => {
     const { css } = postcss([postcssBaseurl({ base: url })]).process(`div { ${value} }`, { parser: safe });

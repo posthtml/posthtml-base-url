@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('pathe');
 const postcss = require('postcss');
 const isUrl = require('is-url-superb');
 const defu = require('defu');
@@ -9,6 +10,7 @@ const srcset = require('srcset');
 
 function _interopDefaultCompat (e) { return e && typeof e === 'object' && 'default' in e ? e.default : e; }
 
+const path__default = /*#__PURE__*/_interopDefaultCompat(path);
 const postcss__default = /*#__PURE__*/_interopDefaultCompat(postcss);
 const isUrl__default = /*#__PURE__*/_interopDefaultCompat(isUrl);
 const safe__default = /*#__PURE__*/_interopDefaultCompat(safe);
@@ -156,7 +158,7 @@ const plugin = (options = {}) => (tree) => {
     if (isUrl__default(node.attrs[attribute])) {
       return node;
     }
-    node.attrs[attribute] = typeof value === "boolean" ? options.url + node.attrs[attribute] : value + node.attrs[attribute];
+    node.attrs[attribute] = typeof value === "boolean" ? isUrl__default(options.url) ? options.url + node.attrs[attribute] : path__default.join(options.url, node.attrs[attribute]) : isUrl__default(value) ? value + node.attrs[attribute] : path__default.join(value, node.attrs[attribute]);
   };
   const prependUrl = (value, url) => {
     const { css } = postcss__default([postcssBaseurl({ base: url })]).process(`div { ${value} }`, { parser: safe__default });
