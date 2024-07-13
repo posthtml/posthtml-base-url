@@ -73,7 +73,13 @@ Result:
 
 ## Absolute URLs
 
-If the value to be replaced is an URL, the plugin will not modify it.
+If the target attribute value is an URL, the plugin will not modify it.
+
+If the prefix string to prepend to the target attribute value is an URL, the two strings will be concatenated.
+
+## Relative paths
+
+If both the prefix and the attribute value are relative paths, the plugin will intelligently join the paths instead of simply concatenating them.
 
 ## Options
 
