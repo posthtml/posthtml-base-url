@@ -24,12 +24,12 @@
     "node": ">=18"
   },
   "scripts": {
-    "dev": "vitest",
     "build": "unbuild",
     "release": "npx np",
     "prepack": "unbuild",
     "pretest": "npm run lint",
     "lint": "biome lint ./lib",
+    "dev": "vitest --coverage",
     "test": "vitest run --coverage"
   },
   "keywords": [
@@ -48,6 +48,7 @@
   "dependencies": {
     "defu": "^6.1.4",
     "is-url-superb": "^6.1.0",
+    "pathe": "^1.1.2",
     "postcss": "^8.4.35",
     "postcss-safe-parser": "^7.0.0",
     "srcset": "^5.0.1"
