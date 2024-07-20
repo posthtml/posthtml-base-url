@@ -49,7 +49,7 @@ test('src attribute', t => {
 
 test('srcset attribute', t => {
   return process(t, 'srcset', {
-    url: 'https://example.com/',
+    url: 'images',
     allTags: true,
   })
 })
