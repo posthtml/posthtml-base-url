@@ -143,7 +143,7 @@ const plugin = (options = {}) => (tree) => {
             const parsed = srcset.parseSrcset(node.attrs[attribute]);
             parsed.map((p) => {
               if (!isUrl__default(p.url)) {
-                p.url = typeof value === "boolean" ? options.url + p.url : value + p.url;
+                p.url = typeof value === "boolean" ? isUrl__default(options.url) ? options.url + p.url : path__default.join(options.url, p.url) : isUrl__default(value) ? value + p.url : path__default.join(value, p.url);
               }
               return p;
             });

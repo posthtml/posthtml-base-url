@@ -134,7 +134,7 @@ const plugin = (options = {}) => (tree) => {
             const parsed = parseSrcset(node.attrs[attribute]);
             parsed.map((p) => {
               if (!isUrl(p.url)) {
-                p.url = typeof value === "boolean" ? options.url + p.url : value + p.url;
+                p.url = typeof value === "boolean" ? isUrl(options.url) ? options.url + p.url : path.join(options.url, p.url) : isUrl(value) ? value + p.url : path.join(value, p.url);
               }
               return p;
             });
