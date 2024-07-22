@@ -1,0 +1,28 @@
+<head>
+  <style>
+    .test {
+      background-image: url('image.jpg');
+      background: url('image.jpg');
+    }
+
+    .test2 {
+      background-image: url('https://preserve.me/image.jpg');
+      background: url('https://preserve.me/image.jpg');
+    }
+
+    .multiple-bg {
+      background-image: url('one.png'), url(two.png), url("three.png"), linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+    }
+  </style>
+</head>
+
+<body style="background: url('image.jpg')">
+  <table style="background: url(image.jpg)">
+    <tr>
+      <th style="background-image: url('image.jpg')">Header</th>
+    </tr>
+    <tr>
+      <td style="background-image: url(image.jpg)">Cell</td>
+    </tr>
+  </table>
+</body>
