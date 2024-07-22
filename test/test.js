@@ -126,3 +126,11 @@ test('joins relative paths', t => {
     },
   })
 })
+
+test('joins bg url paths', t => {
+  return process(t, 'bg-paths', {
+    url: 'relative',
+    styleTag: true,
+    inlineCss: true,
+  })
+})
