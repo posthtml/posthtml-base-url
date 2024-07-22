@@ -17,7 +17,7 @@ function postcssBaseurl(options = {}) {
           rule.walkDecls((decl) => {
             const { value } = decl;
             decl.value = value.replace(urlPattern, ($0, $1, $2, $3) => {
-              return isUrl($2) ? $1 + $2 + $3 : $1 + base + $2 + $3;
+              return isUrl($2) ? $1 + $2 + $3 : isUrl(base) ? $1 + base + $2 + $3 : $1 + path.join(base, $2) + $3;
             });
           });
         }
@@ -26,7 +26,7 @@ function postcssBaseurl(options = {}) {
         rule.walkDecls((decl) => {
           const { value } = decl;
           decl.value = value.replace(urlPattern, ($0, $1, $2, $3) => {
-            return isUrl($2) ? $1 + $2 + $3 : $1 + base + $2 + $3;
+            return isUrl($2) ? $1 + $2 + $3 : isUrl(base) ? $1 + base + $2 + $3 : $1 + path.join(base, $2) + $3;
           });
         });
       });
