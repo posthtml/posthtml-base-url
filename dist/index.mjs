@@ -146,7 +146,7 @@ const plugin = (options = {}) => (tree) => {
     return node;
   };
   const handleSingleValueAttributes = (node, attribute, value) => {
-    if (isUrl(node.attrs[attribute])) {
+    if (typeof node.attrs[attribute] === "string" && isUrl(node.attrs[attribute])) {
       return node;
     }
     node.attrs[attribute] = typeof value === "boolean" ? isUrl(options.url) ? options.url + node.attrs[attribute] : path.join(options.url, node.attrs[attribute]) : isUrl(value) ? value + node.attrs[attribute] : path.join(value, node.attrs[attribute]);

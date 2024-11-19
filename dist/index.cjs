@@ -155,7 +155,7 @@ const plugin = (options = {}) => (tree) => {
     return node;
   };
   const handleSingleValueAttributes = (node, attribute, value) => {
-    if (isUrl__default(node.attrs[attribute])) {
+    if (typeof node.attrs[attribute] === "string" && isUrl__default(node.attrs[attribute])) {
       return node;
     }
     node.attrs[attribute] = typeof value === "boolean" ? isUrl__default(options.url) ? options.url + node.attrs[attribute] : path__default.join(options.url, node.attrs[attribute]) : isUrl__default(value) ? value + node.attrs[attribute] : path__default.join(value, node.attrs[attribute]);
