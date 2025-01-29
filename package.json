@@ -43,7 +43,7 @@
     "@biomejs/biome": "1.9.4",
     "@vitest/coverage-v8": "^2.0.2",
     "unbuild": "^2.0.0",
-    "vitest": "^2.0.2"
+    "vitest": "^3.0.4"
   },
   "dependencies": {
     "defu": "^6.1.4",
