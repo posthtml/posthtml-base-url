@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 const path = require('pathe');
 const postcss = require('postcss');
 const isUrl = require('is-url-superb');
@@ -167,4 +169,7 @@ const plugin = (options = {}) => (tree) => {
   return tree.walk(process);
 };
 
-module.exports = plugin;
+exports.parseSrcset = srcset.parseSrcset;
+exports.stringifySrcset = srcset.stringifySrcset;
+exports.default = plugin;
+exports.defaultTags = defaultTags;

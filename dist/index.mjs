@@ -5,6 +5,7 @@ import { defu } from 'defu';
 import safe from 'postcss-safe-parser';
 import { walk } from 'posthtml/lib/api.js';
 import { parseSrcset, stringifySrcset } from 'srcset';
+export { parseSrcset, stringifySrcset } from 'srcset';
 
 const urlPattern = /(url\(["']?)(.*?)(["']?\))/g;
 function postcssBaseurl(options = {}) {
@@ -158,4 +159,4 @@ const plugin = (options = {}) => (tree) => {
   return tree.walk(process);
 };
 
-export { plugin as default };
+export { plugin as default, defaultTags };
